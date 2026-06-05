@@ -57,7 +57,7 @@ public class Tienda {
         facturas.add(nuevaFactura);
     }
 
-    public void reemplazarProductoPorId(String idBuscado, Producto nuevoProducto) throws ProductoNoEcontradoException {
+    public void reemplazarProductoPorId(String idBuscado, Producto nuevoProducto) throws ProductoNoEncontradoException {
         Producto productoViejo = inventario.stream()
                 .filter(prod -> prod.getId().equals(idBuscado))
                 .findFirst()
@@ -77,7 +77,7 @@ public class Tienda {
     public long contarFacturasPorProducto(String nombreProducto) {
         return facturas.stream()
                 .filter(fact -> fact.getDetalles().stream()
-                        .anyMatch(detalle -> detalle.getProducto.getNombre.equalsIgnoreCase(nombreProducto)))
+                        .anyMatch(detalle -> detalle.getProducto().getNombre().equalsIgnoreCase(nombreProducto)))
                 .count();
     }
 }

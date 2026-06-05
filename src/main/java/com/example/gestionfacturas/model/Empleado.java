@@ -10,7 +10,7 @@ public class Empleado {
     private double salario;
     private Puesto puesto;
 
-    public Empleado(String id, String nombre, String apellido, double salario, Puesto puesto) {
+    public Empleado(String id, String nombre, String apellido, double salario, Puesto puesto) throws DatoInvalidoException {
         if (id == null || id.trim().isEmpty()) {
             throw new DatoInvalidoException("El ID del empleado es requerido.");
         }else if (nombre == null || nombre.trim().isEmpty()) {
@@ -27,6 +27,10 @@ public class Empleado {
         this.apellido = apellido;
         this.salario = salario;
         this.puesto = puesto;
+    }
+
+    public String getId() {
+        return id;
     }
 
 }
